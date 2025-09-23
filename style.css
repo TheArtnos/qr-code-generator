@@ -1,0 +1,174 @@
+/* --- General Body & Font Styles --- */
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f0f4f8;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* --- Main Container & Header --- */
+.main-container {
+  width: 100%;
+  max-width: 450px;
+  text-align: center;
+}
+
+.header h1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 2.5rem;
+  color: #1e3a5f;
+  margin-bottom: 8px;
+}
+
+.header p {
+  font-size: 1.1rem;
+  color: #5a7b9d;
+  margin-bottom: 30px;
+}
+
+/* --- Generator Card --- */
+.generator-card {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+}
+
+/* --- Tab Styles --- */
+.tabs {
+  display: flex;
+  margin-bottom: 25px;
+  border: 1px solid #dcdfe6;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  background-color: #f8f9fa;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #5a7b9d;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.tab-btn:not(:last-child) {
+  border-right: 1px solid #dcdfe6;
+}
+
+.tab-btn.active {
+  background-color: #3a86ff;
+  color: white;
+}
+
+/* --- Form Styles --- */
+.wifi-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #4a5568;
+}
+
+input[type="text"],
+input[type="password"],
+select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #dcdfe6;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+select:focus {
+  outline: none;
+  border-color: #3a86ff;
+  box-shadow: 0 0 0 3px rgba(58, 134, 255, 0.2);
+}
+
+.form-group-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: flex-start;
+}
+
+.form-group-checkbox label {
+  font-weight: normal;
+  color: #4a5568;
+}
+
+input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #3a86ff;
+}
+
+/* --- Shared Button --- */
+.generateBtn {
+  width: 100%;
+  background-color: #3a86ff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 14px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  margin-top: 25px;
+}
+
+.generateBtn:hover {
+  background-color: #3375e0;
+  transform: translateY(-2px);
+}
+
+/* --- QR Code Output --- */
+.qr-output {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.qrcode-placeholder {
+  padding: 15px;
+  border: 2px dashed #dcdfe6;
+  border-radius: 10px;
+  width: 200px;
+  height: 200px;
+}
+
+.qrcode-placeholder img {
+  width: 100%;
+  height: 100%;
+}
+
+/* --- Utility Class --- */
+.hidden {
+  display: none;
+}
