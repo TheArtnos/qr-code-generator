@@ -88,3 +88,8 @@ const downloadQr = (dl) => (link.href = dl);
 // Add events to Generate button
 generateBtn.addEventListener("click", generateQR);
 generateBtn.addEventListener("click", generateWifiQR);
+
+
+const test = document.querySelector(".test");
+
+test.textContent = textInput.value;
