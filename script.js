@@ -14,6 +14,13 @@ const encryptionInput = document.getElementById("encryption");
 const isHidden = document.querySelector("#isHidden");
 const link = document.querySelector("a");
 
+// show QR Code
+const showQr = function () {
+  qrOutput.classList.remove("hidden");
+  qrOutput.classList.add("block");
+  qrPlaceholder.classList.add("has-code");
+  qrOutput.style.marginTop = "3rem";
+};
 // When the page is fully loaded
 document.addEventListener("DOMContentLoaded", () => {
   // When clicking the "Text / URL" tab
@@ -45,18 +52,11 @@ document.addEventListener("DOMContentLoaded", () => {
 const generateQR = function (e) {
   e.preventDefault();
   if (textInput.value.length > 0) {
-    // imageQr.src = `https://quickchart.io/qr?text=${textInput.value}&size=300`; // Set QR image
-    imageQr.src = ` https://quickchart.io/qr?text=https%3A%2F%2Ftheartnos.github.io%2Fqr-code-generator%2Fwifi.html&dark=3a86ff&size=300`; // Set QR image
-    const test = document.querySelector(".test");
-    const test2 = textInput.value;
-    test.textContent = test2
+    imageQr.src = `https://quickchart.io/qr?text=${textInput.value}&dark=3a86ff&size=300`; // Set QR image
 
     downloadQr(imageQr.src); // Prepare download link
 
-    qrOutput.classList.remove("hidden"); // Show QR output
-    qrOutput.classList.add("block");
-    qrPlaceholder.classList.add("has-code");
-    qrOutput.style.marginTop = "3rem";
+    showQr(); // Show QR output
   }
 };
 
@@ -73,14 +73,9 @@ const generateWifiQR = function (e) {
     const encryption = encryptionInput.value;
 
     // Generate Wi-Fi QR with standard format
-    imageQr.src = `https://quickchart.io/qr?text=WIFI:T:${encryption};S:${ssid};P:${pass};H:${isHidden.checked};;`;
-
+    imageQr.src = `https://quickchart.io/qr?text=WIFI:T:${encryption};S:${ssid};P:${pass};H:${isHidden.checked}&dark=3a86ff;;`;
+    showQr(); // Show QR output
     downloadQr(imageQr.src); // Prepare download link
-
-    qrOutput.classList.remove("hidden"); // Show QR output
-    qrOutput.classList.add("block");
-    qrPlaceholder.classList.add("has-code");
-    qrOutput.style.marginTop = "3rem";
   } else {
     console.log("error"); // Invalid input case
   }
@@ -92,6 +87,3 @@ const downloadQr = (dl) => (link.href = dl);
 // Add events to Generate button
 generateBtn.addEventListener("click", generateQR);
 generateBtn.addEventListener("click", generateWifiQR);
-
-
-
