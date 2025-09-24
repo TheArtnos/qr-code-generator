@@ -3,35 +3,134 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Dynamic QR Code Generator</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <div class="vcard-section">
-      <h2>ساخت QR Code برای کارت ویزیت آنلاین</h2>
-      <p>اطلاعات زیر را وارد کنید تا یک کارت ویزیت دیجیتال بسازید.</p>
+    <div class="main-container">
+      <header class="header">
+        <h1>QuickQR</h1>
+        <p>Generate clean, professional QR codes instantly.</p>
+      </header>
 
-      <input type="text" id="firstName" placeholder="نام" />
-      <input type="text" id="lastName" placeholder="نام خانوادگی" />
-      <input
-        type="tel"
-        id="phone"
-        placeholder="شماره تلفن (مثال: +989123456789)"
-      />
-      <input type="email" id="email" placeholder="آدرس ایمیل" />
-      <input type="text" id="website" placeholder="آدرس وب‌سایت (اختیاری)" />
-      <input type="text" id="company" placeholder="نام شرکت (اختیاری)" />
-      <input type="text" id="jobTitle" placeholder="عنوان شغلی (اختیاری)" />
+      <div class="generator-card">
+        <div class="tabs">
+          <button class="tab-btn active" id="textTab">Text / URL</button>
+          <button class="tab-btn" id="wifiTab">Wi-Fi</button>
+          <button class="tab-btn" id="cardTab">Vcard</button>
+        </div>
 
-      <button id="generateVCardBtn">ساخت QR Code</button>
-    </div>
-    <div id="qrcode-result">
-      <h3>QR Code شما:</h3>
-      <img
-        id="qr-image"
-        src="placeholder.png"
-        alt="QR Code شما در اینجا نمایش داده می‌شود"
-        style="width: 200px; height: 200px; border: 1px solid #ccc"
-      />
+        <div class="form-container">
+          <div id="text-form">
+            <div class="form-group">
+              <label for="textInput">Your Text or URL</label>
+              <input
+                type="text"
+                id="textInput"
+                placeholder="Enter text or https://..."
+              />
+            </div>
+          </div>
+
+          <div class="wifi-form hidden">
+            <div class="form-group">
+              <label for="ssid">Network Name (SSID)</label>
+              <input
+                type="text"
+                id="ssid"
+                placeholder="e.g., MyHomeNetwork"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input
+                type="password"
+                id="password"
+                placeholder="Enter network password"
+              />
+            </div>
+            <div class="form-group">
+              <label for="encryption">Encryption</label>
+              <select id="encryption">
+                <option value="WPA" selected>WPA/WPA2</option>
+                <option value="WEP">WEP</option>
+                <option value="nopass">None (Open Network)</option>
+              </select>
+            </div>
+            <div class="form-group-checkbox">
+              <input type="checkbox" id="isHidden" />
+              <label for="isHidden">This is a hidden network</label>
+            </div>
+          </div>
+
+          <div id="card-form" class="hidden">
+            <div class="form-group">
+              <label for="firstName">First Name</label>
+              <input
+                type="text"
+                id="firstName"
+                placeholder="Enter first name"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="lastName">Last Name</label>
+              <input type="text" id="lastName" placeholder="Enter last name" />
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" placeholder="e.g., +12125551234" />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input
+                type="email"
+                id="email"
+                placeholder="Enter email address"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="website">Website URL (Optional)</label>
+              <input
+                type="text"
+                id="website"
+                placeholder="https://example.com"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="company">Company Name (Optional)</label>
+              <input
+                type="text"
+                id="company"
+                placeholder="Enter company name"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="jobTitle">Job Title (Optional)</label>
+              <input type="text" id="jobTitle" placeholder="Enter job title" />
+            </div>
+          </div>
+          <button class="generateBtn">Generate QR Code</button>
+        </div>
+
+        <div class="qr-output hidden">
+          <div id="qrcode" class="qrcode-placeholder">
+            <a href="" download="qrcode.png"><img src="" alt="qrcode" /></a>
+          </div>
+        </div>
+      </div>
     </div>
     <script src="script.js"></script>
   </body>
