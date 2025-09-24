@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>کارت ویزیت دیجیتال</title>
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, sans-serif;
+        background-color: #f4f4f9;
+        color: #333;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+      .vcard-container {
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 420px;
+        text-align: center;
+      }
+      .profile-pic {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        margin: 0 auto 20px auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 50px;
+        color: #fff;
+        background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        font-weight: bold;
+      }
+      .vcard-name {
+        font-size: 28px;
+        font-weight: 600;
+        margin: 0;
+      }
+      .vcard-title {
+        font-size: 18px;
+        color: #666;
+        margin: 5px 0 25px 0;
+      }
+      .info-item {
+        margin: 15px 0;
+        text-align: right;
+      }
+      .info-item strong {
+        font-size: 14px;
+        color: #888;
+        display: block;
+        margin-bottom: 5px;
+      }
+      .info-item a,
+      .info-item span {
+        font-size: 17px;
+        color: #333;
+        text-decoration: none;
+        direction: ltr;
+        display: block;
+        text-align: right;
+      }
+      .info-item a {
+        color: #007bff;
+      }
+      #save-vcf-btn {
+        background-color: #28a745;
+        color: white;
+        padding: 14px 30px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 17px;
+        font-weight: bold;
+        margin-top: 25px;
+        transition: background-color 0.3s;
+        width: 100%;
+      }
+      #save-vcf-btn:hover {
+        background-color: #218838;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="vcard-container">
+      <div class="profile-pic" id="profile-initials"></div>
+      <h1 class="vcard-name" id="name-display">در حال بارگذاری...</h1>
+      <p class="vcard-title" id="title-display"></p>
+      <div class="vcard-details">
+        <div id="phone-display" class="info-item" style="display: none">
+          <strong>تلفن</strong>
+        </div>
+        <div id="email-display" class="info-item" style="display: none">
+          <strong>ایمیل</strong>
+        </div>
+        <div id="website-display" class="info-item" style="display: none">
+          <strong>وب‌سایت</strong>
+        </div>
+        <div id="company-display" class="info-item" style="display: none">
+          <strong>شرکت</strong>
+        </div>
+      </div>
+      <button id="save-vcf-btn">ذخیره مخاطب</button>
+    </div>
+  </body>
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const params = new URLSearchParams(window.location.search);
+      const firstName = params.get("fn") || "";
+      const lastName = params.get("ln") || "";
+      const phone = params.get("tel") || "";
+      const email = params.get("email") || "";
+      const website = params.get("url") || "";
+      const company = params.get("org") || "";
+      const jobTitle = params.get("title") || "";
+      const fullName = `${firstName} ${lastName}`.trim();
+
+      document.getElementById("name-display").textContent =
+        fullName || "نامی وارد نشده";
+      const initials = (firstName.charAt(0) + lastName.charAt(0)).toUpperCase();
+      document.getElementById("profile-initials").textContent = initials;
+      if (jobTitle)
+        document.getElementById("title-display").textContent = jobTitle;
+
+      if (phone) {
+        const el = document.getElementById("phone-display");
+        el.style.display = "block";
+        el.innerHTML += `<a href="tel:${phone}">${phone}</a>`;
+      }
+      if (email) {
+        const el = document.getElementById("email-display");
+        el.style.display = "block";
+        el.innerHTML += `<a href="mailto:${email}">${email}</a>`;
+      }
+      if (website) {
+        const el = document.getElementById("website-display");
+        el.style.display = "block";
+        el.innerHTML += `<a href="${website}" target="_blank" rel="noopener noreferrer">${website}</a>`;
+      }
+      if (company) {
+        const el = document.getElementById("company-display");
+        el.style.display = "block";
+        el.innerHTML += `<span>${company}</span>`;
+      }
+    });
+  </script>
+</html>
