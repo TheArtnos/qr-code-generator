@@ -47,6 +47,9 @@ const generateQR = function (e) {
   if (textInput.value.length > 0) {
     // imageQr.src = `https://quickchart.io/qr?text=${textInput.value}&size=300`; // Set QR image
     imageQr.src = ` https://quickchart.io/qr?text=https%3A%2F%2Ftheartnos.github.io%2Fqr-code-generator%2Fwifi.html&dark=3a86ff&size=300`; // Set QR image
+    const test = document.querySelector(".test");
+
+test.textContent = textInput.value;
 
     downloadQr(imageQr.src); // Prepare download link
 
@@ -91,6 +94,4 @@ generateBtn.addEventListener("click", generateQR);
 generateBtn.addEventListener("click", generateWifiQR);
 
 
-const test = document.querySelector(".test");
 
-test.textContent = textInput.value;
