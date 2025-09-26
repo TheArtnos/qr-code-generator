@@ -106,7 +106,7 @@ const generateWifiQR = function () {
     const wifiString = `WIFI:T:${encryption};S:${ssid};P:${pass};H:${isHidden.checked};;`;
     const imageUrl = `https://quickchart.io/qr?text=${encodeURIComponent(
       wifiString
-    )}&dark=3a86ff&size=300`;
+    )}&dark=3a86ff&size=300&format=png`;
     showQr(imageUrl);
   }
 };
