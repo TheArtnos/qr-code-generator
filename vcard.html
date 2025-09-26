@@ -76,10 +76,10 @@
         <span>{</span>
         <span class="indent">"<span class="key">name</span>": "<span class="string" id="name"></span>",</span>
         <span class="indent">"<span class="key">email</span>": "<span class="string" id="email"></span>",</span>
-        <span class="indent">"<span class="key">phone</span>": "<span class="string" id="phone"></span>"</span>
-        <span class="indent">"<span class="key">webSite</span>": "<span class="string" id="website"></span>"</span>
-        <span class="indent">"<span class="key">companyName</span>": "<span class="string" id="company"></span>"</span>
-        <span class="indent">"<span class="key">jobTitle</span>": "<span class="string" id="jobTitle"></span>"</span>
+        <span class="indent">"<span class="key">phone</span>": "<span class="string" id="phone"></span>",</span>
+        <span class="indent">"<span class="key">webSite</span>": "<span class="string" id="website"></span>",</span>
+        <span class="indent">"<span class="key">companyName</span>": "<span class="string" id="company"></span>",</span>
+        <span class="indent">"<span class="key">jobTitle</span>": "<span class="string" id="jobTitle"></span>",</span>
         <span>}</span>
       </div>
     </div>
@@ -98,7 +98,11 @@
       const company = params.get("org") || "";
       const jobTitle = params.get("title") || "";
 
-      if (firstName || lastName) document.getElementById("name").textContent = `${firstName} ${lastName}` 
+      if (firstName || lastName) {
+        const parts = [firstName, lastName].filter(Boolean);
+
+        document.getElementById('name').textContent = parts.join(' ')
+      }
 
       if (jobTitle)
         document.getElementById("jobTitle").textContent = jobTitle;
