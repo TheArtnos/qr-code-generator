@@ -12,7 +12,7 @@ window.addEventListener("DOMContentLoaded", () => {
     const parts = [firstName, lastName].filter(Boolean);
 
     document.getElementById("name").textContent = parts.join(" ");
-    console.log(firstName, lastName);
+
   }
 
   if (jobTitle) document.getElementById("jobTitle").textContent = jobTitle;
