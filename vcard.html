@@ -49,7 +49,7 @@
       .key {
         color: #c996d9;
       }
-
+      a,
       .string {
         color: #a9f0e1;
       }
@@ -96,7 +96,7 @@
       const website = params.get("url") || "";
       const company = params.get("org") || "";
       const jobTitle = params.get("title") || "";
-      const fullName = `${firstName} ${lastName}`.trim();
+      const fullName = `${firstName}${lastName}`;
 
       document.getElementById("name").textContent =
         fullName || "نامی وارد نشده";
@@ -105,22 +105,19 @@
 
       if (phone) {
         const el = document.getElementById("phone");
-        el.style.display = "block";
+
         el.innerHTML += `<a href="tel:${phone}">${phone}</a>`;
       }
       if (email) {
         const el = document.getElementById("email");
-        el.style.display = "block";
         el.innerHTML += `<a href="mailto:${email}">${email}</a>`;
       }
       if (website) {
         const el = document.getElementById("website");
-        el.style.display = "block";
         el.innerHTML += `<a href="${website}" target="_blank">${website}</a>`;
       }
       if (company) {
         const el = document.getElementById("company");
-        el.style.display = "block";
         el.innerHTML += `${company}`;
       }
     });
