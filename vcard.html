@@ -97,9 +97,8 @@
       const website = params.get("url") || "";
       const company = params.get("org") || "";
       const jobTitle = params.get("title") || "";
-      const fullName = `${firstName} ${lastName}`;
 
-      if (fullName) document.getElementById("name").textContent = fullName 
+      if (firstName || lastName) document.getElementById("name").textContent = `${firstName} ${lastName}` 
 
       if (jobTitle)
         document.getElementById("jobTitle").textContent = jobTitle;
