@@ -52,6 +52,7 @@
       a,
       .string {
         color: #a9f0e1;
+        text-decoration: none;
       }
 
       .indent {
@@ -96,16 +97,15 @@
       const website = params.get("url") || "";
       const company = params.get("org") || "";
       const jobTitle = params.get("title") || "";
-      const fullName = `${firstName}${lastName}`;
+      const fullName = `${firstName} ${lastName}`;
 
-      document.getElementById("name").textContent =
-        fullName || "نامی وارد نشده";
+      if (fullName) document.getElementById("name").textContent = fullName 
+
       if (jobTitle)
         document.getElementById("jobTitle").textContent = jobTitle;
 
       if (phone) {
         const el = document.getElementById("phone");
-
         el.innerHTML += `<a href="tel:${phone}">${phone}</a>`;
       }
       if (email) {
