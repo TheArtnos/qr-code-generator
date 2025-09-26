@@ -5,64 +5,81 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>کارت ویزیت دیجیتال</title>
     <style>
-      body {
-        background: linear-gradient(135deg, #a464e9, #5e35b1);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        margin: 0;
-        font-family: "Fira Code", monospace;
-      }
+    body {
+  background: linear-gradient(135deg, #a464e9, #5e35b1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  font-family: "Fira Code", monospace;
+}
 
-      .code-window {
-        width: 450px;
-        background-color: #1f1d2b;
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-      }
+.code-window {
+  width: 90%;       
+  max-width: 450px;
+  background-color: #1f1d2b;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
 
-      .header {
-        background-color: #353245;
-        padding: 10px 15px;
-        display: flex;
-        gap: 8px;
-      }
+.header {
+  background-color: #353245;
+  padding: 10px 15px;
+  display: flex;
+  gap: 8px;
+}
 
-      .dot {
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-      }
-      .red { background-color: #ff5f56; }
-      .yellow { background-color: #ffbd2e; }
-      .green { background-color: #27c93f; }
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
 
-      .code-body {
-        padding: 20px;
-        color: #f8f8f2;
-        font-size: 16px;
-        line-height: 1.8;
-      }
+.red { background-color: #ff5f56; }
+.yellow { background-color: #ffbd2e; }
+.green { background-color: #27c93f; }
 
-      .key {
-        color: #c996d9;
-      }
-      a,
-      .string {
-        color: #a9f0e1;
-        text-decoration: none;
-      }
+.code-body {
+  padding: 20px;
+  color: #f8f8f2;
+  font-size: 16px;
+  line-height: 1.8;
+  word-break: break-word; 
+}
 
-      .indent {
-        padding-left: 20px;
-        display: block;
-        transition: background-color 150ms ease;
-      }
-      .indent:hover {
-        background-color: rgba(255, 255, 255, 0.1);;
-      }
+.key {
+  color: #c996d9;
+}
+
+a,
+.string {
+  color: #a9f0e1;
+  text-decoration: none;
+}
+
+.indent {
+  padding-left: 20px;
+  display: block;
+  transition: background-color 150ms ease;
+}
+
+.indent:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/
+@media (max-width: 500px) {
+  .code-body {
+    font-size: 14px;
+    padding: 15px;   
+  }
+
+  .indent {
+    padding-left: 15px; 
+}
+
     </style>
   </head>
   <body>
