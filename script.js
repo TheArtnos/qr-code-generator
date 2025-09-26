@@ -123,7 +123,7 @@ const generateVcardQR = function () {
   const pageUrl = "https://theartnos.github.io/qr-code-generator/vcard.html";
 
   const params = new URLSearchParams();
-  if (firstName) params.append("fa", firstName);
+  if (firstName) params.append("fn", firstName);
   if (lastName) params.append("ln", lastName);
   if (phone) params.append("tel", phone);
   if (email) params.append("email", email);
